@@ -1,3 +1,4 @@
+/* Global Styles */
 .App {
   text-align: center;
 }
@@ -36,3 +37,198 @@
     transform: rotate(360deg);
   }
 }
+
+/* Global Styles for Cursive Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Dancing Script', cursive;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 48px;
+  letter-spacing: 1px;
+  color: #333;  /* You can adjust the color */
+}
+
+h2 {
+  font-size: 40px;
+  color: #333;
+}
+
+/* Main Logo */
+.main-logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.main-p {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Fullscreen Section */
+.section {
+  height: 100vh;  /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Center content vertically */
+  align-items: center;  /* Center content horizontally */
+  padding: 20px;
+  box-sizing: border-box;  /* Ensure padding doesn't overflow */
+  background-color: #660033;  /* Background color */
+}
+
+/* Section Title */
+.section h2 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Section Content */
+.section p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Gallery Section */
+#gallery {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f4f4f4;
+  background-image: url('https://image4.photobiz.com/8911/37_20240619233337_8036010_xlarge.jpg'); /* Set the image URL here */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .App-header {
+    font-size: calc(10px + 1.5vmin);
+  }
+
+  .section h2 {
+    font-size: 2.5rem;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  #gallery {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  .section h2 {
+    font-size: 2rem;
+  }
+
+  .section p {
+    font-size: 0.9rem;
+  }
+
+  .main-logo {
+    font-size: 30px;
+  }
+
+  #gallery {
+    padding: 15px 5px;
+    background-attachment: scroll; /* Disable fixed background attachment on small screens */
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(10px + 3vmin);
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .section p {
+    font-size: 0.8rem;
+  }
+
+  .main-logo {
+    font-size: 28px;
+  }
+
+  #gallery {
+    padding: 10px;
+    background-size: contain; /* Change background size for smaller screens */
+    background-position: top;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Stack images vertically */
+  }
+}
+
+@media (max-width: 480px) {
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section p {
+    font-size: 0.75rem;
+  }
+
+  .main-logo {
+    font-size: 24px;
+  }
+
+  #gallery {
+    padding: 10px 5px;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .gallery-grid img {
+    width: 100%;  /* Make images responsive */
+  }
+}
+
+/* Default style for the counter (on Hero page) */
+.counter {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centered in the screen */
+  color: #fff; /* White text color on Hero page */
+  font-family: 'Dancing Script', cursive; /* Cursive font */
+  background-color: transparent; /* Transparent background on Hero screen */
+  border-radius: 20px; /* Rounded corners */
+  padding: 30px 40px; /* Larger padding */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  font-size: 36px; /* Larger font size for the centered counter */
+  font-weight: 800; /* Increased font weight on Hero page */
+  text-align: center;
+  z-index: 1000;
+  transition: all 0.6s ease-in-out; /* Smooth transition for size and position */
+}
+
+/* Style for when the user scrolls down */
+.counter.scrolled {
+  top: 10px; /* Move to the top */
+  transform: translateX(-50%); /* No vertical centering */
+  font-size: 18px; /* Smaller font size for the top position */
+  padding: 10px 20px; /* Reduce padding */
+  background-color: #fff; /* White background after scroll */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  color: #800020; /* Burgundy color when scrolled */
+  font-weight: 600; /* Reduced font weight after scroll */
+}
+
+/* Font imports (to be added in your App.css or index.css) */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
