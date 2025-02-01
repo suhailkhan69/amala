@@ -1,17 +1,12 @@
-// Gallery.js
 import React from 'react';
-import '../App.css'; // Import your styles if available
+import '../App.css';
 
 const Gallery = () => {
   return (
     <section id="gallery" style={styles.gallery}>
-      <div style={styles.galleryGrid}>
-        <img src="https://via.placeholder.com/600x400" alt="Gallery Image 1" style={styles.image} />
-        <img src="https://via.placeholder.com/400x600" alt="Gallery Image 2" style={styles.image} />
-        <img src="https://via.placeholder.com/600x400" alt="Gallery Image 3" style={styles.image} />
-        <img src="https://via.placeholder.com/400x400" alt="Gallery Image 4" style={styles.image} />
-        <img src="https://via.placeholder.com/400x600" alt="Gallery Image 5" style={styles.image} />
-        <img src="https://via.placeholder.com/600x400" alt="Gallery Image 6" style={styles.image} />
+      <div style={styles.overlay}>
+        <h2 style={styles.title}>Our Gallery</h2>
+        <p style={styles.subtitle}>Memories of Our Journey</p>
       </div>
     </section>
   );
@@ -19,32 +14,44 @@ const Gallery = () => {
 
 const styles = {
   gallery: {
-    padding: '40px 20px',
-    textAlign: 'center',
-    backgroundColor: '#f4f4f4',
-  },
-  galleryGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(6, 1fr)', // Ensure a responsive layout
-    gridTemplateAreas: `
-      "a a b b c c"
-      "a a b b c c"
-      "d e e f f f"
-    `,
-    
+    height: '100vh', // Full height of the viewport
+    backgroundImage: 'url("/images/cover2.jpg")',
+    backgroundSize: 'cover', // Ensures the image covers the entire gallery section
+    backgroundPosition: 'center center', // Centers the image within the section
+    backgroundAttachment: 'fixed', // Adds a parallax scrolling effect (optional)
+    position: 'relative',
+    color: 'white',
+    display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    overflow: 'hidden', // Prevent any overflow outside the gallery section
   },
-  image: {
-    width: '100%',
-    height: 'auto',
+  
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Dark overlay for better text contrast
+    padding: '20px',
     borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    transition: 'transform 0.3s ease',
-    gridColumnStart: "Depending recreates balance normal",
-    // Define how specific images span across rows and columns
-    gridArea: 'auto',
-    cursor: 'pointer',
-    transform: 'scale(1)',
+    position: 'absolute',
+    top: '20%', // Move the overlay down to push the text up
+    left: '50%',
+    transform: 'translateX(-50%)',
+    textAlign: 'center',
+  },
+  
+  title: {
+    fontSize: '48px', // Title font size
+    fontWeight: '700',
+    color: 'white', // Make title text white
+    margin: 0, // Remove default margin for better control
+    lineHeight: '1.2',
+  },
+  
+  subtitle: {
+    fontSize: '30px',
+    marginTop: '10px',
+    fontWeight: '600',
+    color: 'white', // Ensure the subtitle is also white
   },
 };
 

@@ -15,7 +15,7 @@ const Hero = () => {
 const styles = {
   hero: {
     height: '100vh', // Full height of the viewport
-    backgroundImage: 'url("https://images.squarespace-cdn.com/content/v1/5a5f992351a5844aed924c18/1612143817338-3FLU0BLRVGVAPCBNZFEO/Montreal+Ottawa+Wedding+Photographer.jpg")',
+    backgroundImage: 'url("/images/cover1.jpg")',
     backgroundSize: 'cover', // Ensures the image covers the entire hero section
     backgroundPosition: 'center center', // Centers the image within the section
     backgroundAttachment: 'fixed', // Adds a parallax scrolling effect (optional)

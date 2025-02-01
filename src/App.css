@@ -70,14 +70,16 @@ h2 {
 
 /* Fullscreen Section */
 .section {
-  height: 100vh;  /* Full viewport height */
+  height: auto; /* Allow the section to grow based on content */
+  min-height: 100vh; /* Ensure it covers at least the full viewport height */
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* Center content vertically */
-  align-items: center;  /* Center content horizontally */
-  padding: 20px;
-  box-sizing: border-box;  /* Ensure padding doesn't overflow */
-  background-color: #660033;  /* Background color */
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px; /* Add padding to the section */
+  box-sizing: border-box;
+  background-color: #660033; /* Background color */
+  overflow: hidden; /* Prevent content from overflowing */
 }
 
 /* Section Title */
@@ -93,113 +95,91 @@ h2 {
   color: #555;
 }
 
-/* Gallery Section */
-#gallery {
-  padding: 40px 20px;
-  text-align: center;
-  background-color: #f4f4f4;
-  background-image: url('https://image4.photobiz.com/8911/37_20240619233337_8036010_xlarge.jpg'); /* Set the image URL here */
+/* Hero Section */
+#hero {
+  height: 100vh; /* Full viewport height */
+  background-image: url('https://images.squarespace-cdn.com/content/v1/5a5f992351a5844aed924c18/1612143817338-3FLU0BLRVGVAPCBNZFEO/Montreal+Ottawa+Wedding+Photographer.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#hero .overlay {
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+  padding: 20px;
+  border-radius: 8px;
+  position: absolute;
+  top: 20%; /* Move the overlay down to push the text up */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+}
+
+#hero .main-p {
+  font-size: 30px;
+  margin-top: 10px;
+  font-weight: 600;
   color: white;
 }
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  .App-header {
-    font-size: calc(10px + 1.5vmin);
-  }
-
-  .section h2 {
-    font-size: 2.5rem;
-  }
-
-  .section p {
-    font-size: 1rem;
-  }
-
-  #gallery {
-    padding: 20px 10px;
-  }
+/* Gallery Section */
+#gallery {
+  height: 100vh; /* Full viewport height */
+  background-image: url('https://image4.photobiz.com/8911/37_20240619233337_8036010_xlarge.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
 }
 
-@media (max-width: 992px) {
-  .section h2 {
-    font-size: 2rem;
-  }
-
-  .section p {
-    font-size: 0.9rem;
-  }
-
-  .main-logo {
-    font-size: 30px;
-  }
-
-  #gallery {
-    padding: 15px 5px;
-    background-attachment: scroll; /* Disable fixed background attachment on small screens */
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+#gallery .overlay {
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+  padding: 20px;
+  border-radius: 8px;
+  position: absolute;
+  top: 20%; /* Move the overlay down to push the text up */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
-@media (max-width: 768px) {
-  .App-header {
-    font-size: calc(10px + 3vmin);
-  }
-
-  .section h2 {
-    font-size: 1.8rem;
-  }
-
-  .section p {
-    font-size: 0.8rem;
-  }
-
-  .main-logo {
-    font-size: 28px;
-  }
-
-  #gallery {
-    padding: 10px;
-    background-size: contain; /* Change background size for smaller screens */
-    background-position: top;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr; /* Stack images vertically */
-  }
+#gallery h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
 }
 
-@media (max-width: 480px) {
-  .section h2 {
-    font-size: 1.5rem;
-  }
-
-  .section p {
-    font-size: 0.75rem;
-  }
-
-  .main-logo {
-    font-size: 24px;
-  }
-
-  #gallery {
-    padding: 10px 5px;
-    background-size: contain;
-    background-position: center;
-  }
-
-  .gallery-grid img {
-    width: 100%;  /* Make images responsive */
-  }
+#gallery p {
+  font-size: 30px;
+  margin-top: 10px;
+  font-weight: 600;
+  color: white;
 }
 
-/* Default style for the counter (on Hero page) */
+/* Counter Styles */
 .counter {
   position: fixed;
   left: 50%;
@@ -230,5 +210,310 @@ h2 {
   font-weight: 600; /* Reduced font weight after scroll */
 }
 
-/* Font imports (to be added in your App.css or index.css) */
+/* Responsive Styles for Counter */
+@media (max-width: 1200px) {
+  .counter {
+    font-size: 28px; /* Slightly smaller font size */
+    padding: 20px 30px; /* Reduce padding */
+  }
+}
+
+@media (max-width: 992px) {
+  .counter {
+    font-size: 24px; /* Smaller font size */
+    padding: 15px 25px; /* Further reduce padding */
+  }
+}
+
+@media (max-width: 768px) {
+  .counter {
+    font-size: 20px; /* Even smaller font size */
+    padding: 10px 20px; /* Minimal padding */
+    top: 40%; /* Move counter slightly higher to avoid overlap */
+  }
+
+  .counter.scrolled {
+    font-size: 16px; /* Smaller font size for scrolled state */
+    padding: 8px 16px; /* Minimal padding for scrolled state */
+  }
+}
+
+@media (max-width: 480px) {
+  .counter {
+    font-size: 18px; /* Smallest font size for mobile */
+    padding: 8px 16px; /* Minimal padding for mobile */
+    top: 35%; /* Move counter higher to avoid overlap */
+  }
+
+  .counter.scrolled {
+    font-size: 14px; /* Smallest font size for scrolled state */
+    padding: 6px 12px; /* Minimal padding for scrolled state */
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .App-header {
+    font-size: calc(10px + 1.5vmin);
+  }
+
+  .section h2 {
+    font-size: 2.5rem;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  #gallery {
+    background-attachment: scroll; /* Disable fixed background attachment on smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .section h2 {
+    font-size: 2rem;
+  }
+
+  .section p {
+    font-size: 0.9rem;
+  }
+
+  .main-logo {
+    font-size: 30px;
+  }
+
+  #gallery {
+    padding: 15px 5px;
+    background-attachment: scroll; /* Disable fixed background attachment on small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(10px + 3vmin);
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .section p {
+    font-size: 0.8rem;
+  }
+
+  .main-logo {
+    font-size: 28px;
+  }
+
+  #gallery {
+    background-size: contain; /* Adjust background size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section p {
+    font-size: 0.75rem;
+  }
+
+  .main-logo {
+    font-size: 24px;
+  }
+
+  #gallery {
+    background-size: cover; /* Ensure the background covers the entire section */
+  }
+}
+
+/* Horizontal Timeline Styles */
+.timeline-horizontal {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on larger screens */
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Space between items */
+  width: 100%; /* Ensure it takes full width */
+  max-width: 1200px; /* Limit maximum width for larger screens */
+  margin: 0 auto; /* Center the timeline */
+}
+
+.timeline-item {
+  flex: 1 1 300px; /* Allow items to grow and shrink, with a larger base width */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.timeline-image {
+  width: 100%;
+  height: 300px; /* Increased height for larger images */
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  position: relative; /* Ensure the container is positioned correctly */
+}
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire container */
+  border-radius: 8px; /* Match the container's border radius */
+}
+
+/* Text Overlay */
+.timeline-text-overlay {
+  position: absolute; /* Position the text absolutely within the image container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for better text visibility */
+  color: white; /* Text color */
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px; /* Match the container's border radius */
+}
+
+.timeline-text-overlay .timeline-date {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.timeline-text-overlay h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.timeline-text-overlay p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  margin: 5px 0 0;
+}
+
+/* Responsive Styles for Horizontal Timeline */
+@media (max-width: 768px) {
+  .timeline-horizontal {
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .timeline-item {
+    width: 100%; /* Full width for mobile */
+    max-width: 400px; /* Limit width for better readability */
+    margin-bottom: 20px; /* Space between stacked items */
+  }
+
+  .timeline-image {
+    height: 250px; /* Adjust image height for mobile */
+  }
+}
+
+/* Team Section Styles */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between grid items */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-image {
+  width: 150px; /* Fixed width for rounded images */
+  height: 150px; /* Fixed height for rounded images */
+  overflow: hidden;
+  border-radius: 50%; /* Make the image rounded */
+  margin-bottom: 15px; /* Space between image and text */
+}
+
+.rounded-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+  border-radius: 50%; /* Make the image rounded */
+}
+
+.team-text {
+  text-align: center;
+}
+
+.team-text h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #fff; /* Text color */
+}
+
+.team-text p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  margin: 5px 0 0;
+  color: #fff; /* Text color */
+}
+
+/* Responsive Styles for Team Sections */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust for smaller screens */
+  }
+
+  .team-image {
+    width: 120px; /* Adjust image size for mobile */
+    height: 120px;
+  }
+
+  .team-text h3 {
+    font-size: 20px; /* Adjust font size for mobile */
+  }
+
+  .team-text p {
+    font-size: 16px; /* Adjust font size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Single column for very small screens */
+  }
+
+  .team-image {
+    width: 100px; /* Further adjust image size for mobile */
+    height: 100px;
+  }
+
+  .team-text h3 {
+    font-size: 18px; /* Adjust font size for very small screens */
+  }
+
+  .team-text p {
+    font-size: 14px; /* Adjust font size for very small screens */
+  }
+}
+/* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');

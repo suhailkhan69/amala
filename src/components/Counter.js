@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../App.css'; // Ensure you import the CSS file
 
 const Counter = () => {
   const calculateTimeLeft = () => {
@@ -41,7 +42,8 @@ const Counter = () => {
   return (
     <div className={`counter ${isScrolled ? 'scrolled' : ''}`}>
       <div className="time">
-        <span>{timeLeft.days || 0}Days</span> : <span>{timeLeft.hours || 0}Hours</span> : <span>{timeLeft.minutes || 0}Minutes</span> : <span>{timeLeft.seconds || 0}Seconds </span>
+        <span>{timeLeft.days || 0} Days</span> : <span>{timeLeft.hours || 0} Hours</span> :{' '}
+        <span>{timeLeft.minutes || 0} Minutes</span> : <span>{timeLeft.seconds || 0} Seconds</span>
       </div>
     </div>
   );
